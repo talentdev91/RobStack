@@ -2,8 +2,8 @@ import React from 'react';
 import Router from 'react-router';  
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
-import LoginHandler from './components/Login.js';
-import ContactHandler from './components/ContactUs.js';
+import LoginHandler from './pages/Login.js';
+import ContactHandler from './pages/ContactUs.js';
 
 let App = React.createClass({  
   render() {

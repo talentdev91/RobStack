@@ -13,7 +13,7 @@ let Contact = React.createClass({
 			32905<br />
 			USA<br />
 			Web Address:<br />
-			<a href='http://www.iso-parts.com'>http://www.iso-parts.com</a><br />
+			<a href="http://www.iso-parts.com">http://www.iso-parts.com</a><br />
 			Email:<br />
 			<a href='mailto:info@iso-parts.com'>info@iso-parts.com</a><br />
 			Telephone:<br />
