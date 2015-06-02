@@ -9,10 +9,9 @@ let App = React.createClass({
   render() {
     return (
       <div className="nav">
-        <Link to="app">Home</Link>
-        <Link to="login">Login</Link>
+        <Link to="app">Home</Link> 
+        <Link to="login">Login</Link> 
         <Link to="contactus">Contact Us</Link>
-
         {/* this is the importTant part */}
         <RouteHandler/>
       </div>
@@ -29,5 +28,6 @@ let routes = (
 
 /* this is where we could add the history clause */
 Router.run(routes, function (Handler) {  
-  React.renderToString(<Handler/>,  document.getElementById('divRoute'));
+  React.render(<Handler/>,  document.getElementById('divRoute'));
 });
+/* React.renderToString(<Handler/>,  document.getElementById('divRoute')); */
