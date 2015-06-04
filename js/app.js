@@ -2,16 +2,21 @@ import React from 'react';
 import Router from 'react-router';  
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
-import LoginHandler from './pages/Login.js';
-import ContactHandler from './pages/ContactUs.js';
+import LoginHandler from './pages/Login';
+import ContactHandler from './pages/ContactUs';
+import NsnDetailHandler from './pages/NSNDetail';
+import NsnListHandler from './pages/NSN';
 
 let App = React.createClass({  
   render() {
     return (
       <div className="nav">
-        <Link to="app">Home</Link> 
-        <Link to="login">Login</Link> 
-        <Link to="contactus">Contact Us</Link>
+      <ul>
+        <li><Link to="app">Home</Link></li>
+        <li><Link to="login">Login</Link></li>
+        <li><Link to="contactus">Contact Us</Link></li>
+        <li><Link to="nsn">NSN</Link></li>
+      </ul>
         {/* this is the importTant part */}
         <RouteHandler/>
       </div>
@@ -22,7 +27,9 @@ let App = React.createClass({
 let routes = (  
   <Route name="app" path="/" handler={App}>
     <Route name="login" path="/login" handler={LoginHandler}/>,
-    <Route name="contactus" path="/contactus" handler={ContactHandler}/>
+    <Route name="contactus" path="/contactus" handler={ContactHandler}/>,
+    <Route name="nsn" path="/NSN" handler={NsnListHandler}/>,
+    <Route name="nsnDetail" path="/NSNDetail/:nsn" handler={NsnDetailHandler}/>
   </Route>
 );
 
