@@ -145,28 +145,28 @@
 
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-	var _componentsLoginJs = __webpack_require__(198);
+	var AppRoutes = __webpack_require__(198);
 
-	var _componentsLoginJs2 = _interopRequireDefault(_componentsLoginJs);
-
-	var _componentsContactUsJs = __webpack_require__(199);
-
-	var _componentsContactUsJs2 = _interopRequireDefault(_componentsContactUsJs);
+	/*import LoginHandler from './pages/Login';
+	import ContactHandler from './pages/ContactUs';
+	import NsnDetailHandler from './pages/NSNDetail';
+	import NsnListHandler from './pages/NSN';*/
 
 	var App = _react2['default'].createClass({
 	  displayName: 'App',
 
 	  render: function render() {
-	    return _react2['default'].createElement('div', { className: 'nav' }, _react2['default'].createElement(_reactRouter.Link, { to: 'app' }, 'Home'), _react2['default'].createElement(_reactRouter.Link, { to: 'login' }, 'Login'), _react2['default'].createElement(_reactRouter.Link, { to: 'contactus' }, 'Contact Us'), _react2['default'].createElement(_reactRouter.RouteHandler, null));
+	    return _react2['default'].createElement('div', { className: 'nav' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement(_reactRouter.Link, { to: 'app' }, 'Home')), _react2['default'].createElement('li', null, _react2['default'].createElement(_reactRouter.Link, { to: 'login' }, 'Login'))), _react2['default'].createElement(_reactRouter.RouteHandler, null));
 	  }
 	});
 
-	var routes = _react2['default'].createElement(_reactRouter.Route, { name: 'app', path: '/', handler: App }, _react2['default'].createElement(_reactRouter.Route, { name: 'login', path: '/login', handler: _componentsLoginJs2['default'] }), ',', _react2['default'].createElement(_reactRouter.Route, { name: 'contactus', path: '/contactus', handler: _componentsContactUsJs2['default'] }));
+	var mountNode = document.getElementById('react-main-mount');
 
 	/* this is where we could add the history clause */
-	_reactRouter2['default'].run(routes, function (Handler) {
-	  _react2['default'].render(_react2['default'].createElement(Handler, null), document.getElementById('divRoute'));
+	_reactRouter2['default'].run(AppRoutes, function (Handler) {
+	  _react2['default'].render(_react2['default'].createElement(Handler, null), mountNode);
 	});
+	/* React.renderToString(<Handler/>,  document.getElementById('divRoute')); */
 	/* this is the importTant part */
 
 	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "app.js" + ": " + err.message); } }); } } })(); }
@@ -23665,10 +23665,6 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
@@ -23677,18 +23673,46 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var Login = _react2['default'].createClass({
-	  displayName: 'Login',
+	var _reactRouter = __webpack_require__(159);
 
-	  render: function render() {
-	    return _react2['default'].createElement('div', null, 'Welcome to login');
-	  }
-	});
+	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-	exports['default'] = Login;
-	module.exports = exports['default'];
+	/*let IndexPage = require('../pages/index');
+	let VideoPage = require('../pages/video');
+	let QuestionPage = require('../pages/question');
+	let LocationPage = require('../pages/location');*/
 
-	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Login.js" + ": " + err.message); } }); } } })(); }
+	var _pagesLogin = __webpack_require__(200);
+
+	var _pagesLogin2 = _interopRequireDefault(_pagesLogin);
+
+	var _pagesContactUs = __webpack_require__(199);
+
+	var _pagesContactUs2 = _interopRequireDefault(_pagesContactUs);
+
+	var _pagesNSNDetail = __webpack_require__(203);
+
+	var _pagesNSNDetail2 = _interopRequireDefault(_pagesNSNDetail);
+
+	var _pagesNSN = __webpack_require__(204);
+
+	var _pagesNSN2 = _interopRequireDefault(_pagesNSN);
+
+	var Route = _reactRouter2['default'].Route;
+	var DefaultRoute = _reactRouter2['default'].DefaultRoute;
+
+	var routes = _react2['default'].createElement(Route, { name: 'app', path: '/', handler: App }, _react2['default'].createElement(Route, { name: 'login', path: '/login', handler: _pagesLogin2['default'] }), ',', _react2['default'].createElement(Route, { name: 'contactus', path: '/contactus', handler: _pagesContactUs2['default'] }), ',', _react2['default'].createElement(Route, { name: 'nsn', path: '/NSN', handler: _pagesNSN2['default'] }), ',', _react2['default'].createElement(Route, { name: 'nsnDetail', path: '/NSNDetail/:nsn', handler: _pagesNSNDetail2['default'] }));
+
+	/*let routes = (
+	    React.createElement(Route, {name: 'app', handler: IndexPage, path: '/'},
+	        React.createElement(Route, {name: 'login', handler: LoginHandler}),
+	        React.createElement(Route, {name: 'location', handler: LocationPage}),
+	        React.createElement(Route, {name: 'questions', handler: QuestionPage}))
+	);*/
+
+	module.exports = routes;
+
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "appRoutes.js" + ": " + err.message); } }); } } })(); }
 
 /***/ },
 /* 199 */
@@ -23722,6 +23746,217 @@
 	module.exports = exports['default'];
 
 	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ContactUs.js" + ": " + err.message); } }); } } })(); }
+
+/***/ },
+/* 200 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _componentsTutorial = __webpack_require__(201);
+
+	var _componentsTutorial2 = _interopRequireDefault(_componentsTutorial);
+
+	var _componentsDetailPageTitleBox = __webpack_require__(202);
+
+	var _componentsDetailPageTitleBox2 = _interopRequireDefault(_componentsDetailPageTitleBox);
+
+	var Login = _react2['default'].createClass({
+	  displayName: 'Login',
+
+	  render: function render() {
+	    return _react2['default'].createElement('div', null, _react2['default'].createElement(_componentsDetailPageTitleBox2['default'], { name: 'Rob', nsn: '121212-3434343', description: 'OH MY Gosh Golly!' }), 'Welcome to login', _react2['default'].createElement(_componentsTutorial2['default'], { name: 'Rob' }));
+	  }
+	});
+
+	exports['default'] = Login;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Login.js" + ": " + err.message); } }); } } })(); }
+
+/***/ },
+/* 201 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { "default": obj };
+	}
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var CommentBox = _react2["default"].createClass({
+	  displayName: "CommentBox",
+
+	  render: function render() {
+	    return _react2["default"].createElement("div", { className: "commentBox" }, "Hello, ", this.props.name, "! I am a CommentBox.");
+	  }
+	});
+	exports["default"] = CommentBox;
+	module.exports = exports["default"];
+
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "tutorial.js" + ": " + err.message); } }); } } })(); }
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) {
+	    return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Nsn = _react2['default'].createClass({
+	    displayName: 'Nsn',
+
+	    render: function render() {
+	        return _react2['default'].createElement('h1', null, 'NSN ', this.props.nsn);
+	    }
+	});
+
+	var Name = _react2['default'].createClass({
+	    displayName: 'Name',
+
+	    render: function render() {
+	        return _react2['default'].createElement('div', null, _react2['default'].createElement('h2', null, this.props.name));
+	    }
+	});
+
+	var Description = _react2['default'].createClass({
+	    displayName: 'Description',
+
+	    render: function render() {
+	        return _react2['default'].createElement('strong', null, this.props.description);
+	    }
+	});
+
+	var titleBox = _react2['default'].createClass({
+	    displayName: 'titleBox',
+
+	    render: function render() {
+	        return _react2['default'].createElement('div', null, _react2['default'].createElement(Nsn, { nsn: this.props.nsn }), _react2['default'].createElement(Name, { name: this.props.name }), _react2['default'].createElement(Description, { description: this.props.description }));
+	    }
+	});
+
+	exports['default'] = titleBox;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "detailPageTitleBox.js" + ": " + err.message); } }); } } })(); }
+
+/***/ },
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _componentsDetailPageTitleBox = __webpack_require__(202);
+
+	var _componentsDetailPageTitleBox2 = _interopRequireDefault(_componentsDetailPageTitleBox);
+
+	var NSN = _react2['default'].createClass({
+	  displayName: 'NSN',
+
+	  contextTypes: {
+	    router: _react2['default'].PropTypes.func
+	  },
+	  render: function render() {
+	    var router = this.context.router;
+
+	    var Nsn = router.getCurrentParams().nsn;
+	    return _react2['default'].createElement('div', null, _react2['default'].createElement(_componentsDetailPageTitleBox2['default'], { name: 'Rob', nsn: Nsn, description: 'OH MY Gosh Golly!' }));
+	  }
+	});
+
+	exports['default'] = NSN;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "NSNDetail.js" + ": " + err.message); } }); } } })(); }
+
+/***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) {
+	    return obj && obj.__esModule ? obj : { "default": obj };
+	}
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var NSNList = _react2["default"].createClass({
+	    displayName: "NSNList",
+
+	    contextTypes: {
+	        router: _react2["default"].PropTypes.func
+	    },
+	    render: function render() {
+	        //let { router } = this.context;
+	        //let Nsn = router.getCurrentParams().nsn;
+	        return _react2["default"].createElement("div", null, "STUFF", _react2["default"].createElement("ul", null, _react2["default"].createElement("li", null, _react2["default"].createElement(Link, { to: "ndnDetail/1234-12-123-12345" }, "1234-12-123-12345")), _react2["default"].createElement("li", null, _react2["default"].createElement(Link, { to: "ndnDetail/1234-12-123-12346" }, "1234-12-123-12346")), _react2["default"].createElement("li", null, _react2["default"].createElement(Link, { to: "ndnDetail/1234-12-123-12347" }, "1234-12-123-12347")), _react2["default"].createElement("li", null, _react2["default"].createElement(Link, { to: "ndnDetail/1234-12-123-12348" }, "1234-12-123-12348"))));
+	    }
+	});
+
+	exports["default"] = NSNList;
+	module.exports = exports["default"];
+
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\Projects\\RobStack\\node_modules\\react-hot-loader\\makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "NSN.js" + ": " + err.message); } }); } } })(); }
 
 /***/ }
 /******/ ]);

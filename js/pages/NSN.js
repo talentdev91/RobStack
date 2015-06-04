@@ -10,9 +10,11 @@ let NSNList = React.createClass({
   		//let { router } = this.context;
   		//let Nsn = router.getCurrentParams().nsn;
     	return(<div>
-        STUFF
     		<ul>
-       
+        <li><Link to="ndnDetail/1234-12-123-12345">1234-12-123-12345</Link></li>
+        <li><Link to="ndnDetail/1234-12-123-12346">1234-12-123-12346</Link></li>
+        <li><Link to="ndnDetail/1234-12-123-12347">1234-12-123-12347</Link></li>
+        <li><Link to="ndnDetail/1234-12-123-12348">1234-12-123-12348</Link></li>
         </ul>
 			</div>
     	);
