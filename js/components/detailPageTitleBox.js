@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToCart from './addToCart';
 
 let Nsn = React.createClass({
     render: function() {
@@ -33,7 +34,9 @@ let titleBox = React.createClass({
         		<Nsn nsn={this.props.nsn} />
         		<Name name={this.props.name} />
         		<Description description={this.props.description} />
-        	</div>
+
+                <AddToCart />
+            </div>
         );
     }
 });
