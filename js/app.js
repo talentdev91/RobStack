@@ -9,5 +9,5 @@ let mountNode = document.getElementById("react-main-mount");
 
 /* this is where we could add the history clause */
 Router.run(AppRoutes, function (Handler) {  
-  React.render(<Handler/>,  mountNode);
+  React.render(<Handler />,  mountNode);
 });

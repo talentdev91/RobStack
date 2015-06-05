@@ -3,15 +3,15 @@ import React from 'react';
 import Router from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
+import IndexHandler from '../pages/index';
 import LoginHandler from '../pages/Login';
 import ContactHandler from '../pages/ContactUs';
 import NsnDetailHandler from '../pages/NSNDetail';
 import NsnListHandler from '../pages/NSN';
 
 
-
 let Routes = (  
-  <Route name="app" path="/">
+  <Route name="app" path="/" handler={IndexHandler}>
     <Route name="login" path="/login" handler={LoginHandler}/>,
     <Route name="contactus" path="/contactus" handler={ContactHandler}/>,
     <Route name="nsn" path="/NSN" handler={NsnListHandler}/>,

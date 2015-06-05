@@ -1,5 +1,4 @@
 import React from 'react';
-
 import NsnTitle from '../components/detailPageTitleBox';
 
 let NSN = React.createClass({ 
