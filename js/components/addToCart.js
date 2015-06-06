@@ -15,15 +15,26 @@ let Add2Cart = React.createClass({
   	}
     this.setState({value: event.target.value.substr(0, maxSize)});
   },
-  render: function() {
-    let value = this.state.value;
-    return (
-    	<div style="border: 1px;">
-    		Add to Cart<br />
+	alertValue: function() {
+		alert(this.state.value);
+		},
+		reset: function() {
+	    this.setState({
+	      value: "Hello!"
+	    });
+	},
+	render: function() {
+	let value = this.state.value;
+	let divStyle = {
+	  border: '1px solid black'
+	};
+	return (
+		<div style={divStyle}>
+			Add to Cart<br />
 	    	<input type="text" value={value} onChange={this.handleChange} />
-	    	<button type="button">Click Me!</button>
-    	</div>
-    	);
+	    	<button onClick={this.alertValue}>Alert Value</button>
+		</div>
+	);
   }
 });
 
